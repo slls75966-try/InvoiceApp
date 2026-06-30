@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Invoice List</title>
+
+    <link
+        rel="stylesheet"
+        href="css/invoicesList.css"
+    >
+
+</head>
+
+<body>
+
+  <header class="page-header">
+    <h1>Invoices List</h1>
+      <button class="back-btn"
+            onclick="window.location.href='index.html'" >
+            ← New Invoice
+        </button>
+    </header>
+
+<main>
+
+  <div class="table-container">
+    <div class="search-container">
+      <span class="search-icon">
+        🔍
+      </span>
+      <input
+        type="search" id="search-input"
+        placeholder="Search by Client Name or  invoice ID">
+    </div>
+    
+    <div class="filters">
+      <label for="status-filter"> Status: </label>
+      <select id="status-filter">
+        <option value=""> All
+        </option>
+        <option value="draft">Draft
+        </option>
+        <option value="unpaid">Unpaid
+        </option>
+        <option value="paid"> Paid
+        </option>
+      </select>
+      <label>From:</label>
+      <input type="date" id="from-date">
+      <label>To:</label>
+      <input type="date"
+        id="to-date">
+      
+      <button id="clear-filters-btn"> Clear
+      </button>
+    </div>
+
+    <table id="invoice-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Invoice ID</th>
+                    <th>Date</th>
+                    <th>Client</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="invoice-table-body">
+
+            </tbody>
+
+        </table>
+        <div id="pagination" class="pagination">
+        </div>
+    </div>
+
+    </main>
+
+    <script src="js/pouchdb.min.js"></script>
+    <script src="js/invoicesList.js"></script>
+</body>
+</html>

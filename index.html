@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>InvoiceApp</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="app-header">
+    <div class="app-logo">
+        🧾
+    </div>
+    <div class="app-brand">
+      <h1>InvoiceApp</h1>
+      <p> Professional Invoicing Made Easy
+      </p>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<section class="navigation-section">
+    <button class="nav-btn nav-new-invoice" type="button" onclick="window.location.href='index.html'">
+     📄
+      <span>New Invoice</span>
+    </button>
+    <button
+      class="nav-btn nav-list-invoices" type="button" onclick="window.location.href='invoicesList.html'">
+        📋 <span>List Invoices</span>
+    </button>
+    <button
+     class="nav-btn nav-settings" type="button" onclick="window.location.href= 'settings.html'">
+        ⚙️ <span>Settings</span>
+    </button>
+</section>
+
+<section class="page-title-section">
+  <h2>Create New Invoice</h2>
+  <p>Create and manage professional invoices easily.</p>
+</section>
+
+<div class="invoice-container">
+  <!-- HEADER -->
+  <header class="invoice-header">
+    <!-- LEFT : COMPANY -->
+    <div class="company-info">
+      <!--div class="logo">LOGO</div-->
+      <img class="company-logo-display" id="company-logo-display"
+        src=""
+        alt="Company Logo"
+        style="display:none;">
+      <div class="company-text">
+        <h1 id="company-name-display" class="company-name"> Your Company Name</h1>
+        <p id="company-tagline-display"> Your Professional Services </p>
+      </div>
+  </div>
+    <!-- RIGHT : INVOICE -->
+    <div class="invoice-info">
+      <h2>INVOICE</h2>
+      <div class="invoice-details">
+        <div class="invoice-id-box">
+          <label for="invoice-id"> Invoice ID
+          </label>
+          <span id="invoice-id"></span>
+        </div>
+        <p><strong>Date</strong>
+        <span id="invoice-date"></span></p>
+        <div class="invoice-status-box"> <label for="invoice-status"> Status
+        <span class="required">*</span>
+         </label> <select id="invoice-status">
+           <option value="" selected>Select Status</option>
+           <option value="draft"> Draft </option> <option value="unpaid"> Unpaid</option>
+        <option value="paid">Paid
+        </option>
+     </select>
+     <span id="invoice-status-print" class="print-only"></span>
+     </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- COMPANY CONTACT -->
+  <section class="company-contact">
+    <p><span id="company-address-display">Company Address</span> | Phone: <span id="company-phone-display">Company phone</span> | Email: <span id="company-email-display"> Company Email</span>
+    </p>
+  </section>
+
+  <!-- CLIENT SECTION -->
+        <section class="client-section">
+            <h3>Bill To</h3>
+            <div class="client-grid">
+                <!-- LEFT -->
+                <div class="client-left">
+
+                    <div class="form-group">
+                        <label>Client Name
+              <span class="required">*</span>     </label>
+            <input type="text" placeholder="Enter client name" >
+              </div>
+
+            <div class="form-group">
+                        <label>Address
+                <span class="required">*</span>     </label>
+
+                        <textarea
+                            placeholder="Enter client address"
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="client-right">
+
+                    <div class="form-group">
+                        <label>Phone Number
+              <span class="required">*</span>         </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter phone number"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address
+              <span class="required">*</span>     </label>
+
+                        <input
+                            type="email"
+                            placeholder="Enter email address"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PRODUCT SECTION -->
+
+        <section class="product-section">
+
+            <h3>Products / Services</h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+      <th>Total</th>
+      <th class="action-column">Action</th>
+       </tr>
+       </thead>
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <input
+                                type="text"
+                                placeholder="Product name"
+                            >
+                        </td>
+
+                        <td>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                min="0"
+                            >
+                        </td>
+
+                        <td>
+                            <input
+                                type="number"
+                                placeholder="0.00"
+                                min="0"
+                                step="0.01"
+                            >
+                        </td>
+
+                        <td>
+                            <input
+                                type="text"
+                                placeholder="0.00"
+                                readonly
+                            >
+                        </td>
+
+                        <td class="action-cell">
+
+                            <button
+                                class="delete-btn"
+                                type="button"
+                                title="Delete product"
+                            >
+                                🗑
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- TOTALS -->
+
+        <section class="totals-section">
+
+            <div class="totals-box">
+
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span>$0.00</span>
+                </div>
+
+                <div class="total-line">
+          <span id="tax-label">Tax (10%):</span>
+                    <span>$0.00</span>
+                </div>
+
+                <div class="total-line grand-total">
+                    <span>Total:</span>
+                    <span>$0.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BUTTONS -->
+
+        <section class="buttons-section">
+
+            <button class="btn save-btn" type="button">
+                Save Invoice
+            </button>
+
+            <button class="btn print-btn" type="button">
+                Print Invoice
+            </button>
+
+        </section>
+
+    </div>
+
+    <!-- PAGE NUMBER -->
+
+    <div class="print-page-number"></div>
+    <script src="js/pouchdb.min.js"></script>
+    <script src="js/invoice.js"></script>
+
+</body>
+
+</html>

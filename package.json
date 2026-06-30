@@ -1,0 +1,47 @@
+{
+  "name": "invoiceapp",
+  "productName": "InvoiceApp",
+  "version": "1.0.0",
+  "description": "Offline Invoice Management Application",
+  "main": "main.js",
+  "author": "App4all",
+  "license": "MIT",
+
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0"
+  },
+
+  "build": {
+    "appId": "com.invoiceapp.desktop",
+    "productName": "InvoiceApp",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+       "index.html",
+        "*.html",
+        "css/**/*",
+        "js/**/*",
+        "assets/**/*",
+        "main.js",
+        "preload.js",
+        "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
